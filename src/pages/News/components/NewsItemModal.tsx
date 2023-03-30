@@ -26,7 +26,7 @@ const NewsItemModal = ({ author, url, description, image, content }: NewsItemPro
 		<Modal isOpen={isModalOpen} handleClose={handleClose}>
 			<Box>
 				<CardHeader
-					title={author}
+					title={author || 'Unknown author'}
 					subheader={content}
 					avatar={<GAvatar name={author} />}
 					sx={{

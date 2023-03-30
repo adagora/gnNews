@@ -3,6 +3,8 @@ import { setOpen, setContent } from '../../../redux/slices/modalAction';
 import { useDispatch } from 'react-redux';
 import ImageIcon from '@mui/icons-material/Image';
 import { Box } from '@mui/system';
+import useIsMobile from '../../../hooks/useIsMobile';
+import useWindowSize from '../../../hooks/useWindowSize';
 interface NewsItemProps {
 	title: string;
 	sourceName: string;
@@ -21,9 +23,11 @@ const NewsItem = ({ title, sourceName, publishedAt, urlToImage, description, aut
 		dispatch(setOpen(true));
 		dispatch(setContent({ title, urlToImage, description, author, url, content }));
 	};
+	const isMobile = useIsMobile('sm');
+	const { width } = useWindowSize();
 
 	return (
-		<Card sx={{ width: 300, maxWidth: 345, height: 200, cursor: 'pointer' }} onClick={handleOpen}>
+		<Card sx={{ width: !isMobile ? 300 : width - 35, height: 200, cursor: 'pointer' }} onClick={handleOpen}>
 			<CardHeader
 				title={title}
 				subheader={sourceName}
