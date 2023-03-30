@@ -8,6 +8,7 @@ import { AppBar, Toolbar, Tooltip } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectValue, updateModule } from '../../redux/slices/toggleButton';
 import { colors } from '../../styles/colors';
+import { TaskDescriptionIcon } from '../TaskDescription';
 
 export const Header = () => {
 	const dispatch = useDispatch();
@@ -37,6 +38,8 @@ export const Header = () => {
 					</Box>
 
 					<Box display='flex' justifyContent='flex-end' alignItems='center' sx={{ flexGrow: 1 }}>
+						<TaskDescriptionIcon />
+
 						<ToggleButtonGroup orientation='horizontal' value={moduleType} exclusive onChange={handleChange}>
 							<Tooltip title='List view'>
 								<ToggleButton value='list' aria-label='list' selected={moduleType === 'list'}>

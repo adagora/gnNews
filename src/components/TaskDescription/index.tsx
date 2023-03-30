@@ -1,0 +1,1 @@
+export { TaskDescriptionIcon } from './TaskDescription';
