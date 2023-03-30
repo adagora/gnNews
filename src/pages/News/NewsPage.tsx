@@ -10,8 +10,10 @@ import { useFetchNewsQuery } from '../../redux/features/news/newsApi';
 import NewsItemModal from './components/NewsItemModal';
 import { ATable } from '../../components/Table/ATable';
 import { formatDate } from '../../helpers/TableHelpers';
+import { useTranslation } from 'react-i18next';
 
 const NewsPage = () => {
+	const { t } = useTranslation();
 	const pathname = useLocation().pathname;
 	const countryCode: any = pathname.split('/').pop()?.toLowerCase();
 
@@ -70,14 +72,14 @@ const NewsPage = () => {
 								}}
 								columns={[
 									{
-										title: 'publishedAt',
+										title: t('publishedAt'),
 										key: 'publishedAt',
 										disableSorting: true,
 										textAlign: 'left',
 										options: { render: (e) => formatDate(e) },
 									},
 									{
-										title: 'author',
+										title: t('author'),
 										key: 'author',
 										textAlign: 'left',
 										options: {
@@ -86,7 +88,7 @@ const NewsPage = () => {
 									},
 
 									{
-										title: 'title',
+										title: t('title'),
 										key: 'title',
 										textAlign: 'right',
 										options: {
@@ -94,7 +96,7 @@ const NewsPage = () => {
 										},
 									},
 									{
-										title: 'source',
+										title: t('source'),
 										key: 'source',
 										textAlign: 'right',
 										options: {

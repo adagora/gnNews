@@ -1,0 +1,15 @@
+{
+	"author": "autor",
+	"title": "tytuł",
+	"description": "opis",
+	"url": "url",
+	"urlToImage": "url do obrazka",
+	"publishedAt": "data publikacji",
+	"content": "treść",
+	"source": "źródło",
+	"id": "id źródła",
+	"name": "nazwa źródła",
+	"This application is demo, it shows you news from api for each available country.": "Ta aplikacja jest demo, pokazuje ona wiadomości z api dla każdego dostępnego kraju.",
+	"Homepage": "Strona główna",
+	"Choose country from menu on the left.": "Wybierz kraj z menu po lewej."
+}

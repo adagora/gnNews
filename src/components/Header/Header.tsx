@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectValue, updateModule } from '../../redux/slices/toggleButton';
 import { colors } from '../../styles/colors';
 import { TaskDescriptionIcon } from '../TaskDescription';
+import { LanguageSwitcher } from '../LanguageSwitcher/LanguageSwitcher';
+import { useLocation } from 'react-router';
 
 export const Header = () => {
 	const dispatch = useDispatch();
@@ -20,6 +22,8 @@ export const Header = () => {
 	};
 
 	const moduleType = useSelector(selectValue);
+
+	const location = useLocation();
 
 	return (
 		<>
@@ -38,6 +42,8 @@ export const Header = () => {
 					</Box>
 
 					<Box display='flex' justifyContent='flex-end' alignItems='center' sx={{ flexGrow: 1 }}>
+						{location.pathname === '/' && <LanguageSwitcher />}
+
 						<TaskDescriptionIcon />
 
 						<ToggleButtonGroup orientation='horizontal' value={moduleType} exclusive onChange={handleChange}>
