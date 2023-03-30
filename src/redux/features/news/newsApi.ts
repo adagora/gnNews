@@ -7,17 +7,17 @@ interface IArticle {
 	};
 	author: string;
 	title: string;
-	description: string | null;
+	description: string;
 	url: string;
-	urlToImage: string | null;
+	urlToImage: string;
 	publishedAt: string;
-	content: string | null;
+	content: string;
 }
 
 interface INewsResponse {
+	articles: IArticle[];
 	status: string;
 	totalResults: number;
-	articles: Record<string, IArticle>;
 }
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -29,7 +29,7 @@ export const newsApiSlice = createApi({
 	}),
 	endpoints(builder) {
 		return {
-			fetchNews: builder.query<any, { countryCode: string }>({
+			fetchNews: builder.query<INewsResponse, { countryCode: string }>({
 				query: ({ countryCode }) => `https://newsapi.org/v2/top-headlines?country=${countryCode}&apiKey=${API_KEY}`,
 			}),
 		};
