@@ -98,7 +98,7 @@ const NewsPage = () => {
 										key: 'source.name',
 										textAlign: 'right',
 										options: {
-											render: (e) => e,
+											render: (e) => console.log('source', e),
 										},
 									},
 								]}

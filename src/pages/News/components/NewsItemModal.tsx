@@ -1,9 +1,10 @@
-import { Avatar, CardActions, CardContent, CardHeader, CardMedia, Link, Tooltip, Typography } from '@mui/material';
+import { CardActions, CardContent, CardHeader, CardMedia, Link, Tooltip, Typography } from '@mui/material';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import { selectOpen, setClose } from '../../../redux/slices/modalAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../../../components/Modal';
 import { Box } from '@mui/system';
+import { GAvatar } from '../../../components/GAvatar';
 
 interface NewsItemProps {
 	author: string;
@@ -20,26 +21,10 @@ const NewsItemModal = ({ author, url, description, image }: NewsItemProps) => {
 		dispatch(setClose());
 	};
 
-	const authorInitials = author
-		?.split(' ')
-		.map((name) => name[0])
-		.join('')
-		.toUpperCase();
-
-	const bgColorAvatar = Math.floor(0x1000000 * Math.random()).toString(16);
-
 	return (
 		<Modal isOpen={isModalOpen} handleClose={handleClose}>
 			<Box>
-				<CardHeader
-					title={author}
-					subheader={url}
-					avatar={
-						<Avatar sx={{ bgcolor: bgColorAvatar }} aria-label='recipe'>
-							{authorInitials}
-						</Avatar>
-					}
-				/>
+				<CardHeader title={author} subheader={url} avatar={<GAvatar name={author} />} />
 
 				{image && <CardMedia component='img' height='194' image={image} alt='modal-img' />}
 

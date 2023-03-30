@@ -22,7 +22,7 @@ const NewsItem = ({ title, sourceName, publishedAt, image, other, description, a
 	};
 
 	return (
-		<Card sx={{ width: 300, maxWidth: 345, cursor: 'pointer' }} onClick={handleOpen}>
+		<Card sx={{ width: 300, maxWidth: 345, height: 350, cursor: 'pointer' }} onClick={handleOpen}>
 			<CardHeader title={title} subheader={sourceName} />
 			<CardContent>
 				<Typography variant='body2' color='text.primary'>
