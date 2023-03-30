@@ -1,8 +1,15 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+interface Props {
+	author: string;
+	url: string;
+	urlToImage: string;
+	description: string;
+	content: string;
+}
 interface ModalActionProps {
 	isOpen: boolean;
-	content: any;
+	content: Props;
 }
 
 interface StateProps {
@@ -11,7 +18,13 @@ interface StateProps {
 
 const initialState: ModalActionProps = {
 	isOpen: false,
-	content: {},
+	content: {
+		author: '',
+		url: '',
+		urlToImage: '',
+		description: '',
+		content: '',
+	},
 };
 
 const modalActionSlice = createSlice({

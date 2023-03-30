@@ -42,10 +42,10 @@ const NewsPage = () => {
 								<Grid item key={index}>
 									<NewsItem
 										title={item.title}
+										content={item.content}
 										sourceName={item.source.name}
 										publishedAt={item.publishedAt}
-										image={item.urlToImage}
-										other={``}
+										urlToImage={item.urlToImage}
 										description={item.description}
 										author={item.author}
 										url={item.url}
@@ -95,10 +95,10 @@ const NewsPage = () => {
 									},
 									{
 										title: 'source',
-										key: 'source.name',
+										key: 'source',
 										textAlign: 'right',
 										options: {
-											render: (e) => console.log('source', e),
+											render: (e) => e.name,
 										},
 									},
 								]}
@@ -114,6 +114,7 @@ const NewsPage = () => {
 				url={content.url}
 				description={content.description}
 				image={content.urlToImage}
+				content={content.content}
 			/>
 		</Overlay>
 	);

@@ -11,9 +11,10 @@ interface NewsItemProps {
 	url: string;
 	description: string;
 	image: string;
+	content: string;
 }
 
-const NewsItemModal = ({ author, url, description, image }: NewsItemProps) => {
+const NewsItemModal = ({ author, url, description, image, content }: NewsItemProps) => {
 	const dispatch = useDispatch();
 	const isModalOpen = useSelector(selectOpen);
 
@@ -24,14 +25,32 @@ const NewsItemModal = ({ author, url, description, image }: NewsItemProps) => {
 	return (
 		<Modal isOpen={isModalOpen} handleClose={handleClose}>
 			<Box>
-				<CardHeader title={author} subheader={url} avatar={<GAvatar name={author} />} />
+				<CardHeader
+					title={author}
+					subheader={content}
+					avatar={<GAvatar name={author} />}
+					sx={{
+						'& .MuiCardHeader-title': {
+							fontSize: '1rem',
+							fontWeight: 500,
+						},
+						'& .MuiCardHeader-subheader': {
+							fontSize: '0.8rem',
+							fontWeight: 400,
+						},
+					}}
+				/>
 
 				{image && <CardMedia component='img' height='194' image={image} alt='modal-img' />}
 
 				<CardContent>
-					{description && (
-						<Typography variant='body2' color='text.secondary'>
+					{description ? (
+						<Typography variant='body1' color='text.primary'>
 							{description}
+						</Typography>
+					) : (
+						<Typography variant='body1' color='text.primary'>
+							No description
 						</Typography>
 					)}
 
