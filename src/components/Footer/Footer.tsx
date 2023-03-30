@@ -2,10 +2,11 @@
 import { css } from '@emotion/react';
 import { Typography, useTheme } from '@mui/material';
 
-import { FOOTER_TEXT, FOOTER_HEIGHT } from '../../utils/constants';
+import { FOOTER_HEIGHT } from '../../utils/constants';
 import { useLocation } from 'react-router';
 import { useFetchNewsQuery } from '../../redux/features/news/newsApi';
 import { CircleLoader } from '../CircleLoader';
+import { format } from 'date-fns';
 
 export const Footer = () => {
 	const theme = useTheme();
@@ -16,6 +17,9 @@ export const Footer = () => {
 	const { data, isLoading, isError } = useFetchNewsQuery({
 		countryCode: countryCode,
 	});
+
+	const now = new Date();
+	const timeString = format(now, 'hh:mm:ss a');
 
 	return (
 		<div
@@ -33,7 +37,7 @@ export const Footer = () => {
 				`}
 				variant='caption'
 				color='textSecondary'>
-				{FOOTER_TEXT}
+				{`The current time is: ${timeString}`}
 			</Typography>
 			<div
 				css={css`

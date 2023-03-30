@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { IconButton, DialogContent, DialogActions, Button } from '@mui/material';
+import { DialogContent, DialogActions, Button } from '@mui/material';
 import { Modal } from '../Modal';
 import { selectIsOpen, toggleOpen } from '../../redux/slices/popup';
 import AssignmentIcon from '@mui/icons-material/Assignment';
@@ -27,8 +27,8 @@ export const TaskDescriptionIcon = () => {
 						subroutes
 						<p>The most fun part of this task was...</p>- working with fetching correct data by using RTK-query and
 						manage them by Redux-toolkit, if there is img icon on the main card, icon should be displayed in the modal
-						(I recommend you Australia, to check it out). Also, I haveve added a language switcher, which is working
-						only on Homepage.
+						(I recommend you Australia, to check it out). Also, I have added a language switcher, which is working only
+						on Homepage.
 					</DialogContent>
 					<DialogActions>
 						<Button onClick={handleClose}>Close</Button>

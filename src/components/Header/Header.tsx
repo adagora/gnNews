@@ -41,12 +41,21 @@ export const Header = () => {
 						<img src={logo} alt='logo' width='57px' height='46px' />
 					</Box>
 
-					<Box display='flex' justifyContent='flex-end' alignItems='center' sx={{ flexGrow: 1 }}>
+					<Box
+						display='flex'
+						justifyContent='flex-end'
+						alignItems='center'
+						sx={{ flexGrow: 1, cursor: location.pathname === '/' ? 'not-allowed' : 'pointer' }}>
 						{location.pathname === '/' && <LanguageSwitcher />}
 
 						<TaskDescriptionIcon />
 
-						<ToggleButtonGroup orientation='horizontal' value={moduleType} exclusive onChange={handleChange}>
+						<ToggleButtonGroup
+							orientation='horizontal'
+							value={moduleType}
+							exclusive
+							onChange={handleChange}
+							disabled={location.pathname === '/'}>
 							<Tooltip title='List view'>
 								<ToggleButton value='list' aria-label='list' selected={moduleType === 'list'}>
 									<ViewListIcon sx={{ color: colors.paco }} />
